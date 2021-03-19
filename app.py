@@ -36,15 +36,15 @@ class CustomCollector(object):
         pass
 
     def collect(self):
-        cpu_usage = GaugeMetricFamily('cpu_procent_usage', '%')
+        cpu_usage = GaugeMetricFamily('sysytem_cpu_procent_usage', '% использования cpu')
         cpu_usage_metric = get_cpu_procent()
         cpu_usage.add_metric([], cpu_usage_metric)
 
-        ram_usage = GaugeMetricFamily('ram_precent_usage', '%')
+        ram_usage = GaugeMetricFamily('system_ram_precent_usage', '% использования оперативы')
         ram_usage_metric = get_virtual_memory_procent_usage()
         ram_usage.add_metric([], ram_usage_metric)
 
-        disk_usage = GaugeMetricFamily('disk_usage', '%')
+        disk_usage = GaugeMetricFamily('system_disk_usage', '% занятого места на диске')
         disk_usage_metric = get_disc_usage()
         disk_usage.add_metric([], disk_usage_metric)
 
